@@ -64,22 +64,23 @@ if __name__ == "__main__":
                         or currentCol >= len(grid[currentRow])):
             done = True
             print("You fall into the chasn of doom.") # Out of bounds.
-            
+        
+        cell = grid[currentRow][currentCol]    
         else:
-            if grid[currentRow][currentCol] == EMPTY:
+            if cell == EMPTY:
                 grid[currentRow][currentCol] = VISITED
                 
-            elif grid[currentRow][currentCol] == WALL:
+            elif cell == WALL:
                 done = True
                 print("You stumble blindly into a solid concrete wall. ") # Hit wall.
 
-            elif grid[currentRow][currentCol] == END:
+            elif cell == END:
                 done = True
                 solved = True
                 print("Solved!") # Solved.
                 
             else:
-                pass # Do nothing
+                pass #Do nothing
         
         charIndex += 1
     # end-while
@@ -88,5 +89,3 @@ if __name__ == "__main__":
     if not solved:
         print("You have failed to escape. Future archeologists gaze upon your remains in bafflement.") # Did not reach the end.
 
-
-    Viewer.view(grid) 
